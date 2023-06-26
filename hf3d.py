@@ -184,7 +184,7 @@ if __name__ == "__main__":
             
     tab_title_list = ["평면도", "데이터처리결과", "측정값과 계산값 간 차이", "심도별 응력", "심도별 주응력", "주응력 방향 분포"]
     
-    WSM_file = '.\wsm2016.csv'
+    WSM_file = 'wsm2016.csv'
 
     st.sidebar.markdown("## HF3Dpy")
     st.sidebar.markdown(f"지하공간 형태나 균열대 분포에 따라 경사시추공을 이용한 삼차원 초기지압 측정이 필요할 때 본 코드를 이용하여 현지 측정값과 계산값 간의 오차를 최소화함으로써 응력을 추정함.")
