@@ -270,7 +270,7 @@ if __name__ == "__main__":
                             
                         folium.Marker([lat,lng], popup=test,tooltip=test).add_to(m)
 
-                        wsm_near_five, wsm_others = BH_and_wsm_func(WSM_file,lat,lng)
+                        #wsm_near_five, wsm_others = BH_and_wsm_func(WSM_file,lat,lng)
                                 
                         #wsm_near_five.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=8, color='red', fill='blue').add_to(m), axis=1)
                         #wsm_others.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=6, color='black', fill='blue').add_to(m), axis=1)
