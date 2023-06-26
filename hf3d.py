@@ -281,10 +281,7 @@ if __name__ == "__main__":
                         AgGrid(wsm_near_five, columns_auto_size_mode = ColumnsAutoSizeMode.FIT_CONTENTS, udate_on = ['init'])                 
                         st.caption("자료 항목에 대한 자세한 설명은 참고자료 \'WSM 안내서\'에서 확인 가능함.")
 
-            except:
-                st.session_state.remark = '관련 info 파일 읽기 오류. 데이터만 처리함.'
-                st.session_state.remark2 = '그래프, 표 png, csv 파일로 저장 가능(지도 제외).'
-                tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list[1::])
+            
         else:
             st.session_state.remark = "관련 info 파일 없음. 데이터만 처리함."
             st.session_state.remark2 = '그래프, 표 png, csv 파일로 저장 가능(지도 제외).'        
