@@ -183,8 +183,8 @@ if __name__ == "__main__":
     if 'export_disabled' not in st.session_state:
         st.session_state.export_disabled = True
 
-    if 'input_filename' not in st.session_state:
-        st.session_state.input_filename =''
+    if 'show_all' not in st.session_state:
+        st.session_state.show_all = False
     
     if 'remark' not in st.session_state:
         st.session_state.remark = ''
@@ -206,8 +206,11 @@ if __name__ == "__main__":
     st.sidebar.markdown(f"[World Stress Map 안내서 및 데이터 파일](https://datapub.gfz-potsdam.de/download/10.5880.WSM.2016.001/)")
     
     st.sidebar.markdown(f"---")
-    
-    dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat', 'txt'])
+
+    def ini_show_all():
+        st.show_all = False
+        
+    dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat', 'txt'], on_change=ini_show_all())
            
         
     st.sidebar.markdown("---")        
@@ -221,7 +224,7 @@ if __name__ == "__main__":
         st.session_state.remark = ''
         st.session_state.remark2 = ''
 
-    elif dfile.name.lower()==st.session_state.input_filename:
+    elif st.show_all = True:
         pass
         
     else:
@@ -631,6 +634,6 @@ if __name__ == "__main__":
             		placeholder = st.empty()
             		placeholder.pyplot(fig6)
 
-        st.session_state.input_filename=dfile.name.lower()
+            st.session_state.show_all = True
                         
                         
