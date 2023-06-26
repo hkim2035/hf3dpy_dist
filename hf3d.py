@@ -180,7 +180,19 @@ if __name__ == "__main__":
         initial_sidebar_state="expanded"
     )
 
-    api_key = os.environ.get('API_KEY_KIGAM')
+    if 'export_disabled' not in st.session_state:
+        st.session_state.export_disabled = True
+
+    if 'input_filename' not in st.session_state:
+        st.session_state.input_filename =''
+    
+    if 'remark' not in st.session_state:
+        st.session_state.remark = ''
+    
+    if 'remark2' not in st.session_state:
+        st.session_state.remark2 = ''
+
+    #api_key = os.environ.get('API_KEY_KIGAM')
             
     tab_title_list = ["평면도", "데이터처리결과", "측정값과 계산값 간 차이", "심도별 응력", "심도별 주응력", "주응력 방향 분포"]
     
@@ -197,17 +209,6 @@ if __name__ == "__main__":
     
     dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat', 'txt'])
            
-    if 'export_disabled' not in st.session_state:
-        st.session_state.export_disabled = True
-
-    if 'input_filename' not in st.session_state:
-        st.session_state.input_filename =''
-    
-    if 'remark' not in st.session_state:
-        st.session_state.remark = ''
-    
-    if 'remark2' not in st.session_state:
-        st.session_state.remark2 = ''
         
     st.sidebar.markdown("---")        
     st.sidebar.markdown(st.session_state.remark)
