@@ -199,6 +199,9 @@ if __name__ == "__main__":
            
     if 'export_disabled' not in st.session_state:
         st.session_state.export_disabled = True
+
+    if 'input_filename' not in st.session_state:
+        st.session_state.input_filename =''
     
     if 'remark' not in st.session_state:
         st.session_state.remark = ''
@@ -216,9 +219,12 @@ if __name__ == "__main__":
     if dfile is None:
         st.session_state.remark = ''
         st.session_state.remark2 = ''
+
+    elif dfile.name.lower()==st.session_state.input_filename:
+        pass
         
     else:
-
+        
         if dfile.name[-3:].lower()=="dat" or dfile.name[-3:].lower()=="txt":
             
             infofile = dfile.name[:-4]+"_info.txt"
@@ -623,5 +629,7 @@ if __name__ == "__main__":
             	with col2:
             		placeholder = st.empty()
             		placeholder.pyplot(fig6)
+
+        st.session_state.input_filename=dfile.name.lower()
                         
                         
