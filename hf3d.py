@@ -209,7 +209,7 @@ if __name__ == "__main__":
     if 'remark2' not in st.session_state:
         st.session_state.remark2 = ''
 
-    if 'reload' not in st>session_state:
+    if 'reload' not in st.session_state:
         st.session_state.reload = True
     
     st.sidebar.markdown("---")        
