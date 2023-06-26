@@ -261,8 +261,8 @@ if __name__ == "__main__":
                                 
                     #layers = 'L_50K_Geology_Map'
                     #folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="5만 지질도", overlay=True, control=True, show=False, key=api_key).add_to(m)
-                    #layers = 'G_tectonic'
-                    #folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="지체구조도", overlay=True, control=True, show=True, key=api_key).add_to(m)
+                    layers = 'G_tectonic'
+                    folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="지체구조도", overlay=True, control=True, show=True, key=api_key).add_to(m)
                     folium.LayerControl().add_to(m)
                                 
                     folium.Marker([lat,lng], popup=test,tooltip=test).add_to(m)
