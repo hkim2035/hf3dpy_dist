@@ -280,7 +280,8 @@ if __name__ == "__main__":
                         st.markdown(f"측정지점과 가장 가까운 5개의 WSM 데이터")
                         AgGrid(wsm_near_five, columns_auto_size_mode = ColumnsAutoSizeMode.FIT_CONTENTS, udate_on = ['init'])                 
                         st.caption("자료 항목에 대한 자세한 설명은 참고자료 \'WSM 안내서\'에서 확인 가능함.")
-
+            except:
+                pass
             
         else:
             st.session_state.remark = "관련 info 파일 없음. 데이터만 처리함."
