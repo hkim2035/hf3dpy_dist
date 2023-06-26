@@ -224,7 +224,7 @@ if __name__ == "__main__":
         st.session_state.remark = ''
         st.session_state.remark2 = ''
 
-    elif st.show_all = True:
+    elif st.show_all == True:
         pass
         
     else:
