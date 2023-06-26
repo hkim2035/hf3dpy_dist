@@ -222,7 +222,7 @@ if __name__ == "__main__":
         if dfile.name[-3:].lower()=="dat" or dfile.name[-3:].lower()=="txt":
             
             infofile = dfile.name[:-4]+"_info.txt"
-
+            st.write(infofile)
             if os.path.isfile(infofile):
                 st.session_state.remark = '관련 info 파일 있음.'
                 st.session_state.remark2 = '그래프, 표 png, csv 파일로 저장 가능(지도 제외).'
