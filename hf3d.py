@@ -255,6 +255,7 @@ if __name__ == "__main__":
                     # 시추공 위경도 중심으로 인접한 5개 WSM 데이터 표시
                     # wsm file, lat, lng 전달
                 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list)
+                with tab1:
                 with st.spinner(f"평면도 생성 중"):
                     m = folium.Map(location=[lat, lng], zoom_start=10)
                                 
