@@ -195,7 +195,7 @@ if __name__ == "__main__":
     
     st.sidebar.markdown(f"---")
     
-    dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat'])
+    dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat', 'txt'])
            
     if 'export_disabled' not in st.session_state:
         st.session_state.export_disabled = True
@@ -219,7 +219,7 @@ if __name__ == "__main__":
         
     else:
 
-        if dfile.name[-3:].lower()=="dat":
+        if dfile.name[-3:].lower()=="dat" or dfile.name[-3:].lower()=="txt":
             
             infofile = dfile.name[:-4]+"_info.txt"
 
