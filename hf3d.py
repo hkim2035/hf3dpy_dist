@@ -254,34 +254,34 @@ if __name__ == "__main__":
                         
                         # 시추공 위경도 중심으로 인접한 5개 WSM 데이터 표시
                         # wsm file, lat, lng 전달
-                        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list)
-                        with tab1:
-                            with st.spinner(f"평면도 생성 중"):
-                                m = folium.Map(location=[lat, lng], zoom_start=10)
+                    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list)
+                    with tab1:
+                        with st.spinner(f"평면도 생성 중"):
+                            m = folium.Map(location=[lat, lng], zoom_start=10)
                                 
-                                #layers = 'L_50K_Geology_Map'
-                                #folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="5만 지질도", overlay=True, control=True, show=False, key=api_key).add_to(m)
-                                #layers = 'G_tectonic'
-                                #folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="지체구조도", overlay=True, control=True, show=True, key=api_key).add_to(m)
-                                folium.LayerControl().add_to(m)
+                            #layers = 'L_50K_Geology_Map'
+                            #folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="5만 지질도", overlay=True, control=True, show=False, key=api_key).add_to(m)
+                            #layers = 'G_tectonic'
+                            #folium.WmsTileLayer('https://data.kigam.re.kr/openapi/wms', layers, styles='', FORMAT='image/png', transparent=True, version='1.1.1', attr='', name="지체구조도", overlay=True, control=True, show=True, key=api_key).add_to(m)
+                            folium.LayerControl().add_to(m)
                                 
-                                folium.Marker([lat,lng], popup=test,tooltip=test).add_to(m)
+                            folium.Marker([lat,lng], popup=test,tooltip=test).add_to(m)
 
-                                wsm_near_five, wsm_others = BH_and_wsm_func(WSM_file,lat,lng)
+                            wsm_near_five, wsm_others = BH_and_wsm_func(WSM_file,lat,lng)
                                 
-                                wsm_near_five.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=8, color='red', fill='blue').add_to(m), axis=1)
-                                wsm_others.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=6, color='black', fill='blue').add_to(m), axis=1)
+                            wsm_near_five.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=8, color='red', fill='blue').add_to(m), axis=1)
+                            wsm_others.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=6, color='black', fill='blue').add_to(m), axis=1)
             
-                                st_folium(m, width=1200, height=600)
+                            st_folium(m, width=1200, height=600)
                                 
-                                st.markdown(f"측정지점과 가장 가까운 5개의 WSM 데이터")
-                                AgGrid(wsm_near_five, columns_auto_size_mode = ColumnsAutoSizeMode.FIT_CONTENTS, udate_on = ['init'])                 
-                                st.caption("자료 항목에 대한 자세한 설명은 참고자료 \'WSM 안내서\'에서 확인 가능함.")
+                            st.markdown(f"측정지점과 가장 가까운 5개의 WSM 데이터")
+                            AgGrid(wsm_near_five, columns_auto_size_mode = ColumnsAutoSizeMode.FIT_CONTENTS, udate_on = ['init'])                 
+                            st.caption("자료 항목에 대한 자세한 설명은 참고자료 \'WSM 안내서\'에서 확인 가능함.")
 
-                except:
-                    st.session_state.remark = '관련 info 파일 읽기 오류. 데이터만 처리함.'
-                    st.session_state.remark2 = '그래프, 표 png, csv 파일로 저장 가능(지도 제외).'
-                    tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list[1::])
+                #except:
+                #    st.session_state.remark = '관련 info 파일 읽기 오류. 데이터만 처리함.'
+                #    st.session_state.remark2 = '그래프, 표 png, csv 파일로 저장 가능(지도 제외).'
+                #    tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list[1::])
             else:
                 st.session_state.remark = "관련 info 파일 없음. 데이터만 처리함."
                 st.session_state.remark2 = '그래프, 표 png, csv 파일로 저장 가능(지도 제외).'        
