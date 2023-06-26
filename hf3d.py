@@ -168,7 +168,7 @@ def BH_and_wsm_func(WSM_file, lat, lng):
     return kor_sorted[0:5], kor_sorted[5::]
     
 def ini_reload():
-    St.session_state.reload = True
+    st.session_state.reload = True
 
 # main() Function
 if __name__ == "__main__": 
