@@ -256,7 +256,7 @@ if __name__ == "__main__":
                     # wsm file, lat, lng 전달
                 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list)
                 with tab1:
-                with st.spinner(f"평면도 생성 중"):
+                
                     m = folium.Map(location=[lat, lng], zoom_start=10)
                                 
                     #layers = 'L_50K_Geology_Map'
