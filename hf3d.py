@@ -167,7 +167,8 @@ def BH_and_wsm_func(WSM_file, lat, lng):
         
     return kor_sorted[0:5], kor_sorted[5::]
     
- 
+ def ini_reload():
+     st.session_state.reload = True
 
 # main() Function
 if __name__ == "__main__": 
@@ -194,8 +195,10 @@ if __name__ == "__main__":
     st.sidebar.markdown(f"[World Stress Map 안내서 및 데이터 파일](https://datapub.gfz-potsdam.de/download/10.5880.WSM.2016.001/)")
     
     st.sidebar.markdown(f"---")
+
     
-    dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat', 'txt'])
+    
+    dfile = st.sidebar.file_uploader(label="**데이터 파일 선택**", type=['dat', 'txt'], on_change=ini_reload())
            
     if 'export_disabled' not in st.session_state:
         st.session_state.export_disabled = True
@@ -205,7 +208,10 @@ if __name__ == "__main__":
     
     if 'remark2' not in st.session_state:
         st.session_state.remark2 = ''
-        
+
+    if 'reload' not in st>session_state:
+        st.session_state.reload = True
+    
     st.sidebar.markdown("---")        
     st.sidebar.markdown(st.session_state.remark)
     st.sidebar.markdown(st.session_state.remark2)
@@ -672,3 +678,4 @@ if __name__ == "__main__":
                 placeholder = st.empty()
                 placeholder.pyplot(fig6)
         
+        st.session_state.reload = False
