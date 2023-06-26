@@ -26,7 +26,7 @@ def convert_vector_to_bearing_inclination(vector):
     # N축은 -1,0,0
     x, y, z = -vector[0], vector[1], -vector[2]
     bearing = int(round(np.degrees(math.acos(np.dot([-1, 0, 0], [x, y, 0])/(1*np.sqrt(x**2+y**2)))),0))
-    incl = int(round(np.degrees(math.acos(np.dot([x, y, 0], [x, y, z])/(np.sqrt(x**2+y**2+z**2)*np.sqrt(x**2+y**2)))),0)    )
+    incl = int(round(np.degrees(math.acos(np.dot([x, y, 0], [x, y, z])/(np.sqrt(x**2+y**2+z**2)*np.sqrt(x**2+y**2)))),0))
     if z <= 0:
         incl = abs(incl)
     else:
