@@ -185,7 +185,7 @@ if __name__ == "__main__":
             
     tab_title_list = ["평면도", "데이터처리결과", "측정값과 계산값 간 차이", "심도별 응력", "심도별 주응력", "주응력 방향 분포"]
     
-    WSM_file = '.\wsm2016.csv'
+    WSM_file = 'wsm2016.csv'
 
     st.sidebar.markdown("## HF3Dpy")
     st.sidebar.markdown(f"지하공간 형태나 균열대 분포에 따라 경사시추공을 이용한 삼차원 초기지압 측정이 필요할 때 본 코드를 이용하여 현지 측정값과 계산값 간의 오차를 최소화함으로써 응력을 추정함.")
@@ -270,10 +270,10 @@ if __name__ == "__main__":
                             
                         folium.Marker([lat,lng], popup=test,tooltip=test).add_to(m)
 
-                        #wsm_near_five, wsm_others = BH_and_wsm_func(WSM_file,lat,lng)
+                        wsm_near_five, wsm_others = BH_and_wsm_func(WSM_file,lat,lng)
                                 
-                        #wsm_near_five.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=8, color='red', fill='blue').add_to(m), axis=1)
-                        #wsm_others.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=6, color='black', fill='blue').add_to(m), axis=1)
+                        wsm_near_five.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=8, color='red', fill='blue').add_to(m), axis=1)
+                        wsm_others.apply(lambda row:folium.CircleMarker([row['LAT'],row['LON']], popup=row['ID'], tooltip=row['ID'], radius=6, color='black', fill='blue').add_to(m), axis=1)
             
                         st_folium(m, width=1200, height=600)
                                 
