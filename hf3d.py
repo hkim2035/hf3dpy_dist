@@ -223,7 +223,7 @@ if __name__ == "__main__":
         st.session_state.remark = ''
         st.session_state.remark2 = ''
         
-    else:
+    elif st.session_state.reload ==True:
 
         if dfile.name[-3:].lower()=="dat" or dfile.name[-3:].lower()=="txt":
             
