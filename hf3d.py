@@ -175,7 +175,7 @@ if __name__ == "__main__":
     
     
     st.set_page_config(
-        page_title="HF3Dpy",
+        page_title="HF3DSTRESS",
         page_icon="💻",
         layout="wide",
         initial_sidebar_state="expanded"
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     
     WSM_file = 'wsm2016.csv'
 
-    st.sidebar.markdown("## HF3Dpy")
+    st.sidebar.markdown("## HF3DSTRESS")
     st.sidebar.markdown(f"지하공간 형태나 균열대 분포에 따라 경사시추공을 이용한 삼차원 초기지압 측정이 필요할 때 본 코드를 이용하여 현지 측정값과 계산값 간의 오차를 최소화함으로써 응력을 추정함.")
     st.sidebar.markdown("**참고자료**")
     st.sidebar.markdown(f"[이론적 배경 (Synn et al., 2015)](http://dx.doi.org/10.1016/j.ijrmms.2015.01.012)")
