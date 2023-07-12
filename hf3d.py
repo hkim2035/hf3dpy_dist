@@ -297,8 +297,7 @@ if __name__ == "__main__":
         # line 1-3
         density, tdepth, tburden = [
             float(xx) for xx in src[0].replace("\n", "").split('\t')[0:3]]
-        x0 = [float(xx)
-              for xx in src[1].replace("\n", "").split('\t')]
+        x0 = [float(xx) for xx in src[1].replace("\n", "").split('\t')]
         norows = int(src[2].replace("\n", "").split('\t')[0])
 
         # line 4-n 
