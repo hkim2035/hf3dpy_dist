@@ -19,6 +19,8 @@ from scipy.optimize import least_squares, minimize
 from st_aggrid import AgGrid, ColumnsAutoSizeMode, GridOptionsBuilder
 from streamlit_folium import st_folium
 
+import platform
+
 
 def convert_vector_to_bearing_inclination(vector):
     # Convert a vector to a bearing and inclination
@@ -292,7 +294,10 @@ if __name__ == "__main__":
         #### data processing ####
         # reading dat file
         src = dfile.read().decode('utf-8')
-        src = src.split('\r')
+        if platform.system() == 'Windows':
+            src = src.split('\r')
+        elif platform.system() == 'Darwin' or platform.system() == 'Linux':
+            src = src.split('\n')
 
         # line 1-3
         density, tdepth, tburden = [
