@@ -303,8 +303,8 @@ if __name__ == "__main__":
         infofile = dfile.name[:-4] + "_info.txt"
 
         if os.path.isfile(infofile):
-            st.session_state.remark = "관련 info 파일 있음."
-            st.session_state.remark2 = "그래프, 표 png, csv 파일로 저장 가능(지도 제외)."
+            st.session_state.remark = "이상 발생 시 파일을 한 번 더 선택해 주십시오."
+            st.session_state.remark2 = "그래프, 표 png, csv 파일로 저장 가능합니다(지도 제외)."
             try:
                 # info 파일 읽기
                 f = open(infofile, mode="r", encoding="utf-8")
@@ -382,8 +382,8 @@ if __name__ == "__main__":
                 pass
 
         else:
-            st.session_state.remark = "관련 info 파일 없음. 데이터만 처리함."
-            st.session_state.remark2 = "그래프, 표 png, csv 파일로 저장 가능(지도 제외)."
+            st.session_state.remark = "관련 info 파일 없습니다. 데이터만 처리합니다."
+            st.session_state.remark2 = "그래프, 표 png, csv 파일로 저장 가능합니다(지도 제외)."
             tab2, tab3, tab4, tab5, tab6 = st.tabs(tab_title_list[1::])
 
         #### data reading & processing ####
